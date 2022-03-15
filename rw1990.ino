@@ -1,8 +1,11 @@
 // Based:
 // https://danman.eu/blog/cloning-ibutton-using-rw1990-and-avr/
 // http://elimelecsarduinoprojects.blogspot.com/2013/06/read-dallas-ibutton-arduino.html
-// TODO: danger to atmega328! Use OpenCollector logic!
-// Used 4.8kΩ Pull-up and 5 Vcc for arduino/pull-up
+// swiftgeek
+// https://owenduffy.net/blog/?p=15562
+// https://br-arduino.org/2015/01/arduino-como-ler-tags-ibutton.html (This one is in PT-BR)
+
+// Used 2.2KΩ Pull-up and 5 Vcc for arduino/pull-up
 
 #include <OneWire.h>
 #define PIN 2
@@ -38,7 +41,7 @@ void loop(){
     ibutton.skip();
     ibutton.reset();
     ibutton.write(0x33);
-    Serial.print("  ID before write:");
+    Serial.print("ID before write:");
     for (byte x=0; x<8; x++){
       Serial.print(' ');
       Serial.print(ibutton.read(), HEX);
